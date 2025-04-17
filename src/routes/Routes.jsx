@@ -13,7 +13,8 @@ import Banner from "../components/banner/Banner";
         {
             index: true,
             path:'/',
-            Component: Banner
+            loader:() => fetch ('bookData.json'),
+            Component: Banner,
         }
       ]
     },

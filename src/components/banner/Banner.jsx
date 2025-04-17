@@ -1,9 +1,13 @@
 import React from 'react';
 import image from '../../assets/pngwing.png'
+import Books from '../pages/Books';
+import { useLoaderData } from 'react-router';
 
 
 
 const Banner = () => {
+    const data = useLoaderData();
+    
     return (
         <div>
             <div className="hero bg-base-200 h-[554px] rounded-3xl">
@@ -17,6 +21,7 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
+            <Books data = {data}></Books>
         </div>
     );
 };
