@@ -29,7 +29,7 @@ const Navber = () => {
                         {link}
                         </ul>
                     </div>
-                    <div className="navbar-end gap-3">
+                    <div className="navbar-end gap-3 ">
                     <Link to="log-in" className="btn btn-primary">Login</Link>
                     <Link to="sing-up" className='btn btn-primary'>Sing up</Link>
                     </div>
