@@ -1,12 +1,17 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addDataSTR } from '../../utility/DataAddTolocal';
 
 const Bookdetails = () => {
     const data = useLoaderData();    
     const {id} = useParams();
     
     const book = data.find (item => item.bookId === id || item.bookId === parseInt(id));
-    const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = book;
+    const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating, bookId} = book;
+
+    const passBookId = (bookId) => {
+        addDataSTR(bookId);
+    };
 
     return (
         <div>
@@ -24,7 +29,7 @@ const Bookdetails = () => {
                     <div className='flex text-2xl font-semibold border-b-1 border-black pb-2'>
                         <p>Tags:</p>
                     {
-                        tags.map((tag) => <button className='text-green-500 ml-4'>#{tag}</button>)
+                        tags.map((tag, index) => <button key={index} className='text-green-500 ml-4'>#{tag}</button>)
                     }
                     </div>
                     <div className='flex gap-3 my-2'>
@@ -43,7 +48,7 @@ const Bookdetails = () => {
 
                     </div>
 
-                    <button className="btn btn-primary">Read</button>
+                    <button onClick={() => passBookId(bookId)} className="btn btn-primary">Read</button>
                     <button className="btn btn-primary ml-2">Wishlist</button>
                     </div>
                 </div>
